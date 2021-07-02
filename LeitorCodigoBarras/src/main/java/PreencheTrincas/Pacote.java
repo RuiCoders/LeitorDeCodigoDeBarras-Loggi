@@ -46,9 +46,9 @@ public class Pacote {
 			} else if (i >= 12 && i < 15) {
 				tipoProduto += numeros[i];
 			}
-			
+
 		}
-		return codigoVendedor; 
+		return codigoVendedor;
 	}
 
 	public String destino() {
@@ -65,7 +65,7 @@ public class Pacote {
 		} else if (this.destino.equals("000")) {
 			destino = "Sul";
 		} else {
-			destino = "invalido";
+			destino = " invalido";
 		}
 
 		return destino;
@@ -115,18 +115,28 @@ public class Pacote {
 		String codigoLoggi = "";
 		if (this.codigoLoggi.equals("555")) {
 			codigoLoggi = "555";
+		} else {
+			codigoLoggi = "invalido";
 		}
 		return codigoLoggi;
 	}
 
 	public void verificar() {
 		if (codigoValido()) {
-			if (origem.endsWith("Sul") && tipoProduto.equals("Brinquedo")) {
+			
+			if (origem().endsWith("invalido") || destino().endsWith("invalido") || codigoLoggi().equals("invalido") || tipoProduto().equals("invalido")) {
+				System.out.println("O código de barras é invalido");
+			}
+			
+			if (origem.equals("Sul") && tipoProduto.equals("Brinquedo")) {
 				System.out.println("Origem Sul e Tipo: Brinquedo");
 			}
 
 			if (codigoVendedor.equals("584")) {
-				System.out.println("Vendedor com CNPJ inativo!");
+				System.out.println("*** Vendedor com CNPJ inativo! ***");
+			}
+			if (origem.endsWith("Centro-oeste") && tipoProduto.equals("Joias")) {
+				System.out.println("Não é possível despachar pacotes contendo jóias tendo como região de origem o Centro-oeste");
 			}
 
 		}
