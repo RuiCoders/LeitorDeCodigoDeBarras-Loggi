@@ -123,20 +123,25 @@ public class Pacote {
 
 	public void verificar() {
 		if (codigoValido()) {
-			
-			if (origem().endsWith("invalido") || destino().endsWith("invalido") || codigoLoggi().equals("invalido") || tipoProduto().equals("invalido")) {
-				System.out.println("O código de barras é invalido");
+
+			if (origem().endsWith("invalido") || destino().endsWith("invalido") || codigoLoggi().equals("invalido")
+					|| tipoProduto().equals("invalido")) {
+				System.out.println("* O código de barras é invalido *");
+			} else {
+				System.out.println("* O código de barras esta Valido *");
+
 			}
-			
-			if (origem.equals("Sul") && tipoProduto.equals("Brinquedo")) {
-				System.out.println("Origem Sul e Tipo: Brinquedo");
+
+			if (origem().endsWith("Sul") && tipoProduto().endsWith("Brinquedos")) {
+				System.out.println("** Origem Sul e Tipo: Brinquedo **");
 			}
 
 			if (codigoVendedor.equals("584")) {
 				System.out.println("*** Vendedor com CNPJ inativo! ***");
 			}
-			if (origem.endsWith("Centro-oeste") && tipoProduto.equals("Joias")) {
-				System.out.println("Não é possível despachar pacotes contendo jóias tendo como região de origem o Centro-oeste");
+			if (origem().endsWith("Centro-oeste") && tipoProduto().endsWith("Joias")) {
+				System.out.println("**** Não é possível despachar pacotes contendo "
+						+ "jóias tendo como região de origem o Centro-oeste ****");
 			}
 
 		}
